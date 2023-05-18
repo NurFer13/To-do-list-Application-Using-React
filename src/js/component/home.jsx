@@ -26,28 +26,26 @@ const Home = () => {
         <div className="header">
           <h1>To do List</h1>
         </div>
-        <ul>
-          <li>
-            <input
-              type="text"
-              placeholder="What needs to be done"
-              value={inputValue}
-              onChange={(e) => setInputValue(e.target.value)}
-              onKeyDown={handleKeyDown}
-            />
+        <div>
+          <input
+            type="text"
+            placeholder="What needs to be done"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+          />
+        </div>
+        {toDoList.map((item) => (
+          <li key={item.id}>
+            {item.toDoList}
+            <i
+              className="el icono que quiera meterle"
+              onClick={() => handleDeleteToDoList(item.id)}
+            >
+              {" "}
+            </i>
           </li>
-          {toDoList.map((item) => (
-            <li key={item.id}>
-              {item.toDoList}
-              <i
-                className="el icono que quiera meterle"
-                onClick={() => handleDeleteToDoList(item.id)}
-              >
-                {" "}
-              </i>
-            </li>
-          ))}
-        </ul>
+        ))}
       </div>
     </>
   );
