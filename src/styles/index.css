@@ -9,6 +9,36 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body {
+  margin-top: 100px;
+  place-items: center;
+  display: grid;
+  color: palevioletred;
+}
 h1 {
   color: pink;
+  display: grid;
+}
+input {
+  border: none;
+  width: 400px;
+  padding: 2px;
+}
+
+ul li {
+  list-style: none;
+  width: 490px;
+  padding: 2px;
+  border: 1px solid;
+  border-radius: 2px;
+}
+
+.icono {
+  float: right;
+  padding: 3px;
+  margin-top: 6px;
+}
+
+footer {
+  margin-left: 35px;
 }

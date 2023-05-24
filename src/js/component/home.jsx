@@ -4,7 +4,7 @@ import { useState } from "react";
 
 //create your first component
 const Home = () => {
-  const [inputValue, setInputValue] = useState();
+  const [inputValue, setInputValue] = useState("");
   const [toDoList, setToDoList] = useState([]);
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
@@ -12,12 +12,12 @@ const Home = () => {
         id: Math.random(),
         todo: inputValue,
       };
-      setToDoList(todos.concat(newToDo));
+      setToDoList(toDoList.concat(newToDo));
       setInputValue("");
     }
   };
   const handleDeleteToDoList = (id) => {
-    const newList = todos.filter((item) => id !== item.id);
+    const newList = toDoList.filter((item) => id !== item.id);
     setToDoList(newList);
   };
   return (
@@ -25,27 +25,31 @@ const Home = () => {
       <div className="card bs-tertiary-bg-rgb text-center">
         <div className="header">
           <h1>To do List</h1>
+          <ul>
+            <li>
+              <input
+                type="text"
+                placeholder="What needs to be done"
+                value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                onKeyDown={handleKeyDown}
+              />
+            </li>
+            {toDoList.map((item) => (
+              <li key={item.id}>
+                {item.toDoList}
+
+                <i
+                  class=" icono fas fa-trash"
+                  onClick={() => handleDeleteToDoList(item.id)}
+                >
+                  {" "}
+                </i>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div>
-          <input
-            type="text"
-            placeholder="What needs to be done"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            onKeyDown={handleKeyDown}
-          />
-        </div>
-        {toDoList.map((item) => (
-          <li key={item.id}>
-            {item.toDoList}
-            <i
-              className="el icono que quiera meterle"
-              onClick={() => handleDeleteToDoList(item.id)}
-            >
-              {" "}
-            </i>
-          </li>
-        ))}
+        <div className="footer">{toDoList.length} Tasks</div>
       </div>
     </>
   );
