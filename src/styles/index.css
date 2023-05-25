@@ -10,10 +10,10 @@
 
 */
 body {
-  margin-top: 100px;
-  place-items: center;
-  display: grid;
+  margin-top: 250px;
   color: palevioletred;
+  display: grid;
+  background-color: pink;
 }
 h1 {
   color: pink;
@@ -22,15 +22,23 @@ h1 {
 input {
   border: none;
   width: 400px;
-  padding: 2px;
+  padding: 3px;
+  margin-top: 3px;
 }
 
 ul li {
   list-style: none;
-  width: 490px;
-  padding: 2px;
+  width: 460px;
+  padding: 3px;
   border: 1px solid;
   border-radius: 2px;
+  margin-top: 3px;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .icono {
@@ -41,4 +49,10 @@ ul li {
 
 footer {
   margin-left: 35px;
+}
+
+btn {
+  display: inline-block;
+  background-color: palevioletred;
+  color: white;
 }

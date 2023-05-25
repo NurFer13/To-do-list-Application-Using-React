@@ -22,33 +22,34 @@ const Home = () => {
   };
   return (
     <>
-      <div className="card bs-tertiary-bg-rgb text-center">
+      <div className="card  text-center">
         <div className="header">
           <h1>To do List</h1>
-          <ul>
-            <li>
-              <input
-                type="text"
-                placeholder="What needs to be done"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={handleKeyDown}
-              />
-            </li>
-            {toDoList.map((item) => (
-              <li key={item.id}>
-                {item.toDoList}
-
-                <i
-                  class=" icono fas fa-trash"
-                  onClick={() => handleDeleteToDoList(item.id)}
-                >
-                  {" "}
-                </i>
-              </li>
-            ))}
-          </ul>
         </div>
+        <ul>
+          <li>
+            <input
+              type="text"
+              placeholder="What needs to be done"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={handleKeyDown}
+            />
+          </li>
+          {toDoList.map((item) => (
+            <li key={item.id}>
+              {item.toDoList}
+
+              <i
+                className=" icono fas fa-trash"
+                onClick={() => handleDeleteToDoList(item.id)}
+              >
+                {" "}
+              </i>
+            </li>
+          ))}
+        </ul>
+
         <div className="footer">{toDoList.length} Tasks</div>
       </div>
     </>
